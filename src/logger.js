@@ -8,11 +8,11 @@ function timeSince (time) {
 }
 
 function assertionHasDetails (assertion) {
-    return assertion.error && assertion.error.expected && assertion.error.actual;
+  return assertion.error && assertion.error.expected && assertion.error.actual;
 }
 
 function sanitise (message) {
-    return message.replace(/'/g, '|\'');
+  return message.replace(/'/g, '|\'');
 }
 
 /**
@@ -58,9 +58,10 @@ Logger.prototype.startAssertion = function (assertion) {
 /**
  * Logs assertion failed
  */
-Logger.prototype.failAssertion = function () {
+Logger.prototype.failAssertion = function (assertion) {
+  this.assertion = assertion;
   var output = `testFailed name='${this.assertion.name}'`
-  const assertion = this.assertion;
+  // const assertion = this.assertion;
 
   if (assertionHasDetails(assertion)) {
     const expected = sanitise(assertion.error.expected);

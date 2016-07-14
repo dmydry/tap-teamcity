@@ -24,7 +24,7 @@ function tapTeamCity () {
   // Display successful assertions started
   parser.on('pass', (assertion) => {
     logger.startAssertion(assertion);
-    logger.finishAssertion();
+  logger.finishAssertion();
 })
 
   // // Display successful assertions finished
@@ -41,8 +41,7 @@ function tapTeamCity () {
 
   // Display failed assertions failed and finished
   parser.on('fail', (assertion) => {
-    logger.failAssertion()
-  logger.finishAssertion()
+    logger.failAssertion(assertion)
   stream.failed = true
 })
 
